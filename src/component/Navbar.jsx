@@ -8,9 +8,9 @@ const Navbar = () => {
         const selector = useSelector((state) => state.cart);
   return (
     <div style={{display:"flex",justifyContent:"space-between"}}>
-      <Button m={1} bg="transparent">
+      {/* <Button m={1} bg="transparent">
         <HamburgerIcon />
-      </Button>
+      </Button> */}
       <h1>Welcome to E-commerce</h1>
 
       <Link to="/about">

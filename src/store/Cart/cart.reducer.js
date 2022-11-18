@@ -17,7 +17,7 @@ switch (action.type) {
     }
     case ADD:{
      let newqty= state.cart.map((e)=>{
-        if(e.id===action.payload){
+        if(e.id==action.payload){
             return {...e,qty:e.qty+1}
         }
       })

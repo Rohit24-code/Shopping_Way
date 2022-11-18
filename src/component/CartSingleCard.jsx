@@ -15,6 +15,7 @@ const CartSingleCard = ({one}) => {
          dispatch({ type: "TOTAL"});
       }
       const handleAdd=(id)=>{
+        // console.log("handleAdd",id)
            dispatch({ type: "ADD", payload: id });
            dispatch({ type: "TOTAL"});
       }

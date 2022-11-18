@@ -9,12 +9,13 @@ import SingleCard from '../component/SingleCard';
 const Checkout = () => {
      const cartselector = useSelector((state) => state.cart);
      const nav= useNavigate()
-   console.log(cartselector);
+     console.log(cartselector.cart)
   return (
     <div>
       <div>
         {cartselector.cart &&
           cartselector.cart.map((one) => {
+             console.log("checkout",one);
             return <CartSingleCard key={one.id} one={one} />;
           })}
       </div>

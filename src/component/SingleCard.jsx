@@ -16,9 +16,13 @@ import { ADD, ADD_CART_ITEMS } from "../store/Cart/cart.type";
 const SingleCard=({one,width})=>{
     const dispatch=useDispatch()
     const useselector= useSelector((state=>state.cart))
+
+
     const handleClick=(e)=>{
+
        let findone=useselector.cart.find((el)=>el.id===e.id)
-        if(!findone){
+       console.log(findone,e,e.id);
+        if(findone===undefined){
             dispatch({
               type: ADD_CART_ITEMS,
               payload: { ...e, qty: 1 },
@@ -26,6 +30,7 @@ const SingleCard=({one,width})=>{
             dispatch({ type: "TOTAL" });
         }
         else{
+            console.log("else",e.id)
              dispatch({
                type: ADD,
                payload: e.id,
