@@ -1,4 +1,4 @@
-/* .home{
-    height: 100vh;
-    background-image: url('https: //encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRAK-uNvZ-9TjCwXQzgZLxuC2PRLzyj-sDPw&usqp=CAU');
-} */
+.innerdiv{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
