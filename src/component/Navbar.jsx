@@ -16,7 +16,7 @@ const Navbar = () => {
           "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
       }}
     >
-      <Link to="/about">
+      <Link to="/aboutus">
         <Heading size="md">About</Heading>
       </Link>
 
