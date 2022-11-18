@@ -20,6 +20,9 @@ switch (action.type) {
         if(e.id==action.payload){
             return {...e,qty:e.qty+1}
         }
+        else{
+            return {...e}
+        }
       })
         return { ...state, loading: false, cart: [...newqty] };
 
@@ -28,7 +31,9 @@ switch (action.type) {
     case SUB:{
       let newqty = state.cart.map((e) => {
         if (e.id === action.payload) {
-          return { ...e, qty:e.qty - 1 };
+          return { ...e, qty: e.qty - 1 };
+        } else {
+          return { ...e };
         }
       });
        return { ...state, loading: false, cart: [...newqty] };
@@ -40,10 +45,7 @@ switch (action.type) {
        },0)
          return { ...state, total:newtotal};
     }
-  
-    case SHOW_CART_ITEMS:return{
-      ...state,cart:action.payload
-    }
+ 
 
     default:return state
 }

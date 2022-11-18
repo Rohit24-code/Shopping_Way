@@ -1,0 +1,12 @@
+.spinner{
+    margin-top: 10%;
+    margin-left: 30%;
+    width: 30%;
+    height: 30%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: #000 #0000;
+    animation: s1 1s infinite;
+}
+

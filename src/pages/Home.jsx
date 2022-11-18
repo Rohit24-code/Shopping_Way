@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ItemCard from '../component/Card'
+import Loading from '../component/Loading'
 import Navbar from '../component/Navbar'
 import { getProduct } from '../store/Data/data.action'
 import styles from '../styles/Home.module.css'
@@ -13,7 +14,6 @@ const Home = () => {
     const dataselector= useSelector((state)=>state.data)
     const [value,setValue]=useState("")
     useEffect(()=>{
-        console.log(value)
      dispatch(getProduct(value));
     },[value])
 
@@ -22,22 +22,30 @@ const Home = () => {
       <Navbar />
       <div style={{ display: "flex" }}>
         <div
-          style={{ width: "10%", height: "100vh", border: "1px solid blue" }}
+          style={{ width: "10%", height: "100vh", border: "1px solid black" }}
         >
           <RadioGroup onChange={setValue} value={value}>
             <Stack direction="column">
-                {radio.map((e) => {
-                  return <Radio key={e} value={e}>{e}</Radio>;
-                })}
+              {radio.map((e) => {
+                return (
+                  <Radio key={e} value={e}>
+                    {e}
+                  </Radio>
+                );
+              })}
             </Stack>
           </RadioGroup>
         </div>
 
-        <div className={styles.innerdiv}>
-          {dataselector.data.map((e) => {
-            return <ItemCard key={e.id} {...e} />;
-          })}
-        </div>
+        {dataselector.loading ? (
+          <Loading />
+        ) : (
+          <div className={styles.innerdiv}>
+            {dataselector.data.map((e) => {
+              return <ItemCard key={e.id} {...e} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

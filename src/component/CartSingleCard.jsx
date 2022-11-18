@@ -15,7 +15,6 @@ const CartSingleCard = ({one}) => {
          dispatch({ type: "TOTAL"});
       }
       const handleAdd=(id)=>{
-        // console.log("handleAdd",id)
            dispatch({ type: "ADD", payload: id });
            dispatch({ type: "TOTAL"});
       }
@@ -42,7 +41,7 @@ const CartSingleCard = ({one}) => {
               <Button variant="solid" colorScheme="blue" onClick={one.qty===0?handleDelete(one.id):()=>handleSub(one.id)}>
                 -
               </Button>
-              <Text>Quantity:{one.qty}</Text>
+              <Text size="md">Quantity:{one.qty}</Text>
               <Button variant="solid" colorScheme="blue" onClick={()=>handleAdd(one.id)}>
                 +
               </Button>

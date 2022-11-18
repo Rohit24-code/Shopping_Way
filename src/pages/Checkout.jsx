@@ -4,12 +4,11 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import CartSingleCard from '../component/CartSingleCard';
-import SingleCard from '../component/SingleCard';
+
 
 const Checkout = () => {
      const cartselector = useSelector((state) => state.cart);
      const nav= useNavigate()
-     console.log(cartselector.cart)
   return (
     <div>
       <div>
@@ -28,7 +27,7 @@ const Checkout = () => {
           justifyContent: "center",
         }}
       >
-        <Text fontSize="3xl">TOTAL:{cartselector.total}</Text>
+        <Text fontSize="3xl">TOTAL:{cartselector.total.toFixed(2)}</Text>
         <Button onClick={() => nav("/orderconfirm")}>Proceed To Payment</Button>
       </div>
     </div>
