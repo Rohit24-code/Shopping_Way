@@ -1,34 +1,41 @@
-import { ADD, ADD_CART_ITEMS, DELETE_CART_ITEMS, SHOW_CART_ITEMS, SUB, TOTAL, UPDATE_CART_ITEMS } from "./cart.type";
+import {
+  ADD,
+  ADD_CART_ITEMS,
+  DELETE_CART_ITEMS,
+  SUB,
+  TOTAL,
+} from "./cart.type";
 
-let initialState={
-    loading:true,cart:[],total:0
-}
+let initialState = {
+  loading: true,
+  cart: [],
+  total: 0,
+};
 
-const Cartreducer=(state=initialState,action)=>{
-switch (action.type) {
-    case ADD_CART_ITEMS:return {
-      ...state,
-      loading:false,
-      cart: [...state.cart,{...action.payload}],
-    };
+const Cartreducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_CART_ITEMS:
+      return {
+        ...state,
+        loading: false,
+        cart: [...state.cart, { ...action.payload }],
+      };
     case DELETE_CART_ITEMS: {
-       let nitem= state.cart.filter((e)=>e.id!==action.payload)
-       return {...state,loading:false,cart:[...nitem]}
+      let nitem = state.cart.filter((e) => e.id !== action.payload);
+      return { ...state, loading: false, cart: [...nitem] };
     }
-    case ADD:{
-     let newqty= state.cart.map((e)=>{
-        if(e.id==action.payload){
-            return {...e,qty:e.qty+1}
+    case ADD: {
+      let newqty = state.cart.map((e) => {
+        if (e.id == action.payload) {
+          return { ...e, qty: e.qty + 1 };
+        } else {
+          return { ...e };
         }
-        else{
-            return {...e}
-        }
-      })
-        return { ...state, loading: false, cart: [...newqty] };
+      });
+      return { ...state, loading: false, cart: [...newqty] };
+    }
 
-    }
-    
-    case SUB:{
+    case SUB: {
       let newqty = state.cart.map((e) => {
         if (e.id === action.payload) {
           return { ...e, qty: e.qty - 1 };
@@ -36,19 +43,19 @@ switch (action.type) {
           return { ...e };
         }
       });
-       return { ...state, loading: false, cart: [...newqty] };
+      return { ...state, loading: false, cart: [...newqty] };
     }
 
-    case TOTAL:{
-       let newtotal=state.cart.reduce((acc,curr)=>{
-           return acc + (Number(curr.price) * Number(curr.qty));
-       },0)
-         return { ...state, total:newtotal};
+    case TOTAL: {
+      let newtotal = state.cart.reduce((acc, curr) => {
+        return acc + Number(curr.price) * Number(curr.qty);
+      }, 0);
+      return { ...state, total: newtotal };
     }
- 
 
-    default:return state
-}
-}
+    default:
+      return state;
+  }
+};
 
-export default Cartreducer
+export default Cartreducer;

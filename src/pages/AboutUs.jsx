@@ -1,5 +1,16 @@
-import { background, Box, Card, CardBody, CardHeader, Container, Heading, Stack, StackDivider, Text } from '@chakra-ui/react';
-import React from 'react'
+import {
+  background,
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Container,
+  Heading,
+  Stack,
+  StackDivider,
+  Text,
+} from "@chakra-ui/react";
+import React from "react";
 
 const AboutUs = () => {
   return (
@@ -82,6 +93,6 @@ const AboutUs = () => {
       </Card>
     </div>
   );
-}
+};
 
-export default AboutUs
+export default AboutUs;

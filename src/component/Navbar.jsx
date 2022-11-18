@@ -1,13 +1,21 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react';
-import React from 'react'
-import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Box,  Heading,  } from "@chakra-ui/react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-        const selector = useSelector((state) => state.cart);
+  const selector = useSelector((state) => state.cart);
   return (
-    <div style={{ display: "flex",padding:"20px", position:"sticky",justifyContent: "space-between" ,boxShadow:"rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"}}>
+    <div
+      style={{
+        display: "flex",
+        padding: "20px",
+        position: "sticky",
+        justifyContent: "space-between",
+        boxShadow:
+          "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+      }}
+    >
       <Link to="/about">
         <Heading size="md">About</Heading>
       </Link>
@@ -43,6 +51,6 @@ const Navbar = () => {
       </Link>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

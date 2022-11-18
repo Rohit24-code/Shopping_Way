@@ -1,44 +1,54 @@
-import { Box, Button, Card, CardBody,  Flex, Heading, Image,  Stack, Text } from '@chakra-ui/react'
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Success = () => {
-    const cartselector= useSelector((state)=>state.cart)
+  const cartselector = useSelector((state) => state.cart);
 
-      let nday = [
-        "Sunday",
-        "Monday",
-        "Tueday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
-      var monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      let day = nday[new Date().getDay()];
-      let month = monthNames[new Date().getMonth()];
-      let date = new Date().getUTCDate();
+  let nday = [
+    "Sunday",
+    "Monday",
+    "Tueday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  var monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = nday[new Date().getDay()];
+  let month = monthNames[new Date().getMonth()];
+  let date = new Date().getUTCDate();
   return (
     <div
       style={{
         display: "flex",
         alignItem: "center",
         justifyContent: "center",
-        marginTop: "5%"
+        marginTop: "5%",
       }}
     >
       <Box>
@@ -122,6 +132,6 @@ const Success = () => {
       </Box>
     </div>
   );
-}
+};
 
-export default Success
+export default Success;

@@ -1,23 +1,23 @@
-import { Box, Button, Heading, Image, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
-import { useDispatch } from 'react-redux';
-import { DELETE_CART_ITEMS } from '../store/Cart/cart.type';
-const CartSingleCard = ({one}) => {
-    const dispatch=useDispatch()
-      const handleDelete = (id) => {
-        dispatch({type:DELETE_CART_ITEMS,payload:id});
-        dispatch({ type: "TOTAL" });
-      };
+import { Box, Button, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import React from "react";
+import { Card,  CardBody, CardFooter } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { DELETE_CART_ITEMS } from "../store/Cart/cart.type";
+const CartSingleCard = ({ one }) => {
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch({ type: DELETE_CART_ITEMS, payload: id });
+    dispatch({ type: "TOTAL" });
+  };
 
-      const handleSub=(id)=>{
-         dispatch({ type: "SUB", payload: id });
-         dispatch({ type: "TOTAL"});
-      }
-      const handleAdd=(id)=>{
-           dispatch({ type: "ADD", payload: id });
-           dispatch({ type: "TOTAL"});
-      }
+  const handleSub = (id) => {
+    dispatch({ type: "SUB", payload: id });
+    dispatch({ type: "TOTAL" });
+  };
+  const handleAdd = (id) => {
+    dispatch({ type: "ADD", payload: id });
+    dispatch({ type: "TOTAL" });
+  };
   return (
     <div>
       <Card
@@ -38,11 +38,21 @@ const CartSingleCard = ({one}) => {
             <Heading size="md">{one.title}</Heading>
 
             <Box display="flex" gap="5px" mt="20%">
-              <Button variant="solid" colorScheme="blue" onClick={one.qty===0?handleDelete(one.id):()=>handleSub(one.id)}>
+              <Button
+                variant="solid"
+                colorScheme="blue"
+                onClick={
+                  one.qty === 0 ? handleDelete(one.id) : () => handleSub(one.id)
+                }
+              >
                 -
               </Button>
               <Text size="md">Quantity:{one.qty}</Text>
-              <Button variant="solid" colorScheme="blue" onClick={()=>handleAdd(one.id)}>
+              <Button
+                variant="solid"
+                colorScheme="blue"
+                onClick={() => handleAdd(one.id)}
+              >
                 +
               </Button>
             </Box>
@@ -61,6 +71,6 @@ const CartSingleCard = ({one}) => {
       </Card>
     </div>
   );
-}
+};
 
-export default CartSingleCard
+export default CartSingleCard;
