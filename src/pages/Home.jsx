@@ -22,7 +22,7 @@ const Home = () => {
       <Navbar />
       <div style={{ display: "flex" }}>
         <div
-          style={{ width: "10%", height: "100vh", border: "1px solid black" }}
+          style={{ width: "10%", height: "100vh", border: "1px solid black" ,marginTop:"40px" }}
         >
           <RadioGroup onChange={setValue} value={value}>
             <Stack direction="column">

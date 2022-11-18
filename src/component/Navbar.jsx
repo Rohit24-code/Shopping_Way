@@ -1,4 +1,4 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Heading, Text } from '@chakra-ui/react';
 import React from 'react'
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from 'react-router-dom';
@@ -7,16 +7,14 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
         const selector = useSelector((state) => state.cart);
   return (
-    <div style={{display:"flex",justifyContent:"space-between"}}>
-      {/* <Button m={1} bg="transparent">
-        <HamburgerIcon />
-      </Button> */}
-      <h1>Welcome to E-commerce</h1>
-
+    <div style={{ display: "flex",padding:"20px", position:"sticky",justifyContent: "space-between" ,boxShadow:"rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"}}>
       <Link to="/about">
-       <h1>About</h1>
+        <Heading size="md">About</Heading>
       </Link>
 
+      <Link to="/">
+        <Heading size="md">Welcome to E-commerce</Heading>
+      </Link>
 
       {/* cart  */}
       <Link to="/checkout">
