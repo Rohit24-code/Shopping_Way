@@ -5,3 +5,4 @@ export const UPDATE_CART_ITEMS = "UPDATE_CART_ITEMS";
 export const ADD = "ADD";
 export const SUB = "SUB";
 export const TOTAL = "TOTAL";
+export const EMPTY_CART = "EMPTY_CART";

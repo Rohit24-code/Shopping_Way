@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Loading from "../component/Loading";
+import Navbar from "../component/Navbar";
 import SingleCard from "../component/SingleCard";
 import { singleApi } from "../store/Data/data.action";
 
@@ -16,11 +17,15 @@ const ProductDetail = () => {
   }, []);
   return (
     <div>
-      {useSelector.loading ? (
-        <Loading />
-      ) : (
-        <SingleCard one={one} width="400px" />
-      )}
+      <Navbar />
+
+      <div>
+        {useSelector.loading ? (
+          <Loading />
+        ) : (
+          <SingleCard one={one} width="400px" />
+        )}
+      </div>
     </div>
   );
 };

@@ -74,6 +74,7 @@ const SingleCard = ({ one, width }) => {
             <Heading size="lg"> {one.title}</Heading>
 
             <Text py="50px">{one.description}</Text>
+            <Text py="50px" size="lg">Price: {one.price}</Text>
 
             <select
               onChange={handleQuantity}

@@ -14,6 +14,7 @@ const Home = () => {
     "jewelery",
     "men's clothing",
     "women's clothing",
+    ""
   ];
   const dispatch = useDispatch();
   const dataselector = useSelector((state) => state.data);
@@ -39,7 +40,7 @@ const Home = () => {
               {radio.map((e) => {
                 return (
                   <Radio key={e} value={e}>
-                    {e}
+                    {e==="" ?"All":e}
                   </Radio>
                 );
               })}

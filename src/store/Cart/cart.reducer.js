@@ -2,6 +2,7 @@ import {
   ADD,
   ADD_CART_ITEMS,
   DELETE_CART_ITEMS,
+  EMPTY_CART,
   SUB,
   TOTAL,
 } from "./cart.type";
@@ -51,6 +52,10 @@ const Cartreducer = (state = initialState, action) => {
         return acc + Number(curr.price) * Number(curr.qty);
       }, 0);
       return { ...state, total: newtotal };
+    }
+
+    case EMPTY_CART:return {
+      ...state,cart:[]
     }
 
     default:
